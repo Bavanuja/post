@@ -4,7 +4,7 @@ import users from '../assets/assignemnt3_json.json';
 const CommentList = ({ comments }) => (
   <div>
     {comments.map((comment, id) => (
-      <div key={id}>
+      <div key={id} style={{marginBottom:'10px'}}>
         <strong>{comment.user}:</strong> {comment.text}
       </div>
     ))}
@@ -16,11 +16,13 @@ export default function Post() {
   const [postContent, setPostContent] = useState('');
 
   const HandleAdd = () => {
+    if (postContent.trim() === '') return;
+
     const newPost = {
       id: contents.length + 1, 
       user: 'Bavanuja', 
       profilePicture: 'Bavanuja.jpg', 
-      postDate: "2024-06-10T13:40:00Z", 
+      postDate: new Date().toISOString(),
       content: postContent, 
       likes: 0, 
       comments: [] 
@@ -32,12 +34,12 @@ export default function Post() {
 
   return (
     <div>
-      <div style={{ 
-    maxWidth: '500px', margin: '20px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', backgroundColor: '#fff' }}>
-  <h1 style={{ fontSize: '24px', color: '#1877f2', marginBottom: '20px', textAlign: 'center' }}>Facebook</h1>
-  
-  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-    <img 
+      <div style={{  maxWidth: '500px', margin: '20px auto', padding: '20px', border: '1px solid #ddd', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', backgroundColor: '#fff' }}>
+      <h1 style={{ fontSize: '24px', color: '#1877f2', marginBottom: '20px', textAlign: 'center' }}>Facebook</h1>
+    
+     
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+      <img 
       src='Bavanuja.jpg' 
       alt="Bavanuja's profile" 
       style={{ width: '50px', height: '50px', borderRadius: '50%', marginRight: '15px' }} />
@@ -88,7 +90,6 @@ export default function Post() {
     </div>
   ))}
 </div>
-
-    </div>
+</div>
   );
 }
