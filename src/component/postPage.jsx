@@ -80,11 +80,11 @@ export default function Post() {
 
       
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#65676b', fontSize: '14px', marginBottom: '10px' }}>
-        <p style={{ margin: '0' }}> Likes: {item.likes}</p>
+        <p style={{ margin: '0' }}> Likes {item.likes}</p>
       </div>
 
       <div style={{ paddingLeft: '65px' }}>
-        <h5 style={{ margin: '10px 0', fontSize: '14px', color: '#1877f2' }}>Comments:</h5>
+        <h5 style={{ margin: '10px 0', fontSize: '14px', color: '#1877f2' }}>Comments</h5>
         <CommentList comments={item.comments} />
       </div>
     </div>
